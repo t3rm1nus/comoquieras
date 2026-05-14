@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="descarga/css/jquery.treeview.css" />
+    <link rel="stylesheet" href="descarga/css/screen.css" />
+    <link rel="stylesheet" href="descarga/css/estilos_generales.css" type="text/css"/>
+    
+    <script src="descarga/js/jquery-1.6.4.min.js" type="text/javascript"></script>
+    <script src="descarga/js/jquery.treeview.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="descarga/js/demo.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#arbol").treeview();
+            $("#arbolExpAdmin").treeview();
+            $("#arbolExpAdmin").hide();
+        });
+        
+        function muestraArbol() {
+            $('#normas').hide();
+            $('#navegador').show();
+        }
+        
+    function cargaPdf(pdf){
+                var contentContainer = document.getElementById('content-container');
+
+                // Limpia el contenido actual
+                contentContainer.innerHTML = '';
+
+                // Crea un iframe
+                var iframeElement = document.createElement('iframe');
+                iframeElement.setAttribute('src', pdf);
+                iframeElement.setAttribute('id', 'visorPDF');
+                iframeElement.setAttribute('scrolling', 'auto');
+                iframeElement.style.width = '100%';
+                iframeElement.style.height = '700px'; 
+
+                // Agrega el iframe al contenedor
+                contentContainer.appendChild(iframeElement);
+    
+        }
+        
+
+
+
+        
+        function reproducirVideo(ruta) {
+            var contentContainer = document.getElementById('content-container');
+                
+                // Limpia el contenido actual
+                contentContainer.innerHTML = '';
+                // Crea un elemento de video
+                var videoElement = document.createElement('video');
+                videoElement.setAttribute('controls', 'true'); // Muestra los controles de reproducción (play, pausa, etc.)
+                videoElement.style.width = '100%'; // Define el ancho del video
+                videoElement.style.height = 'auto'; // El alto se ajustará automáticamente para mantener la proporción del video
+            
+                // Crea el elemento de fuente para el video MP4
+                var sourceElement = document.createElement('source');
+                sourceElement.setAttribute('src', ruta);
+                sourceElement.setAttribute('type', 'video/mp4');
+            
+                           // Agrega la fuente al elemento de video
+                videoElement.appendChild(sourceElement);
+
+                // Agrega el video al contenedor
+                contentContainer.appendChild(videoElement);
+    
+                // Reproduce el video automáticamente (opcional)
+                videoElement.play();
+            }
+        
+        
+        function ocultaArbol(){         
+            $('#izquierda').fadeOut(150);   
+            $('#derecha').width('100%');    
+            $('#btnOcultarArbol').fadeOut(0);   
+            $('#btnMostrarArbol').fadeIn(0);        
+        }
+        
+        function mostrarArbol(){            
+            $('#izquierda').fadeIn(150);    
+            $('#derecha').width('71%');
+            $('#btnOcultarArbol').fadeIn(0);    
+            $('#btnMostrarArbol').fadeOut(0);   
+        }
+        
+        function loadMarcadores() {
+            $("#arbol").hide();
+            $("#arbolExpAdmin").hide();
+            $("#listMarcadores").show();
+            $("#listComentarios").hide();
+            $("#listDocAdjunta").hide();
+            $("#listVidAdjuntos").hide();
+            $("#botonOnArbol").hide();
+            $("#botonMarcadores").hide();
+            $("#botonOnComentariosVista").hide();
+            $("#botonOnDocAdjuntaVista").hide();
+            $("#botonOnExpAdmin").hide();
+            $("#botonArbol").show();
+            $("#botonOnMarcadores").show();
+            $("#botonComentariosVista").show();
+            $("#botonDocAdjuntaVista").show();
+            $("#botonExpAdmin").show();
+            $("#botonVideoAdjuntaVista").show();
+            $("#botonOnVideoAdjuntaVista").hide();
+        }
+        
+        function loadComentarios() {
+            $("#arbol").hide();
+            $("#arbolExpAdmin").hide();
+            $("#listMarcadores").hide();
+            $("#listComentarios").show();
+            $("#listDocAdjunta").hide();
+            $("#listVidAdjuntos").hide();
+            $("#botonOnArbol").hide();
+            $("#botonOnMarcadores").hide();
+            $("#botonComentariosVista").hide();
+            $("#botonOnDocAdjuntaVista").hide();
+            $("#botonOnExpAdmin").hide();
+            $("#botonArbol").show();
+            $("#botonMarcadores").show();
+            $("#botonOnComentariosVista").show();
+            $("#botonDocAdjuntaVista").show();
+            $("#botonExpAdmin").show();
+            $("#botonVideoAdjuntaVista").show();
+            $("#botonOnVideoAdjuntaVista").hide();
+        }
+        
+        function loadDocAdjunta() {
+            $("#arbol").hide();
+            $("#arbolExpAdmin").hide();
+            $("#listMarcadores").hide();
+            $("#listComentarios").hide();
+            $("#listDocAdjunta").show();
+            $("#listVidAdjuntos").hide();
+            $("#botonOnArbol").hide();
+            $("#botonOnMarcadores").hide();
+            $("#botonOnComentariosVista").hide();
+            $("#botonDocAdjuntaVista").hide();
+            $("#botonOnExpAdmin").hide();
+            $("#botonArbol").show();
+            $("#botonMarcadores").show();
+            $("#botonComentariosVista").show();
+            $("#botonOnDocAdjuntaVista").show();
+            $("#botonExpAdmin").show();
+            $("#botonVideoAdjuntaVista").show();
+            $("#botonOnVideoAdjuntaVista").hide();
+        }
+        
+        function loadExpAdmin() {
+            $("#arbol").hide();
+            $("#arbolExpAdmin").show();
+            $("#listMarcadores").hide();
+            $("#listComentarios").hide();
+            $("#listDocAdjunta").hide();
+            $("#listVidAdjuntos").hide();
+            $("#botonOnArbol").hide();
+            $("#botonOnMarcadores").hide();
+            $("#botonOnComentariosVista").hide();
+            $("#botonOnDocAdjuntaVista").hide();
+            $("#botonExpAdmin").hide();
+            $("#botonArbol").show();
+            $("#botonMarcadores").show();
+            $("#botonComentariosVista").show();
+            $("#botonDocAdjuntaVista").show();
+            $("#botonOnExpAdmin").show();
+            $("#botonVideoAdjuntaVista").show();
+            $("#botonOnVideoAdjuntaVista").hide();
+        }
+        
+        function loadArbol() {
+            $("#listMarcadores").hide();
+            $("#listComentarios").hide();
+            $("#listDocAdjunta").hide();
+            $("#listVidAdjuntos").hide();
+            $("#arbol").show(); 
+            $("#arbolExpAdmin").hide();
+            $("#botonArbol").hide();
+            $("#botonOnMarcadores").hide();
+            $("#botonOnComentariosVista").hide();
+            $("#botonOnDocAdjuntaVista").hide();
+            $("#botonOnExpAdmin").hide();
+            $("#botonOnArbol").show();
+            $("#botonMarcadores").show();
+            $("#botonComentariosVista").show();
+            $("#botonDocAdjuntaVista").show();
+            $("#botonExpAdmin").show();
+            $("#botonVideoAdjuntaVista").show();
+            $("#botonOnVideoAdjuntaVista").hide();
+        }
+        function loadVideoAdjunto() {
+            $("#arbol").hide();
+            $("#arbolExpAdmin").hide();
+            $("#listMarcadores").hide();
+            $("#listComentarios").hide();
+            $("#listDocAdjunta").hide();
+            $("#listVidAdjuntos").show();
+            $("#botonOnArbol").hide();
+            $("#botonOnMarcadores").hide();
+            $("#botonOnComentariosVista").hide();
+            $("#botonOnDocAdjuntaVista").hide();
+            $("#botonExpAdmin").hide();
+            $("#botonArbol").show();
+            $("#botonMarcadores").show();
+            $("#botonComentariosVista").show();
+            $("#botonDocAdjuntaVista").show();
+            $("#botonOnExpAdmin").show();
+            $("#botonVideoAdjuntaVista").hide();
+            $("#botonOnVideoAdjuntaVista").show();
+        }
+        
+    </script>
+</head>
+
+<body>
+    <div id="contenedor_ancho" style="overflow:auto">
+        <div id="header">
+            <div class="user">Procedimiento: PAB 0000098/2024 </div>
+            <br class="clear" />
+        </div>
+
+        <div id="normas">
+            <h2>Visualizaci&oacute;n de los documentos de un procedimiento</h2>
+            <p>Para poder utilizar esta funcionalidad debe de cumplir con los siguientes requisitos en su navegador:</p>
+            <ul>
+                <li>Tener instalado y activado el plug-in de Acrobat Reader versi&oacute;n 10 o superior</li>
+                <p>Si no lo tiene puede obtenerlo en esta direcci&oacute;n: <a href="http://get.adobe.com/es/reader/">http://get.adobe.com/es/reader/</a></p>
+                <li>Tener habilitado el uso de javascript</li>
+            </ul>
+            <br/>
+            <p>Adem&aacute;s, si su navegador es Internet Explorer, se le pedir&aacute; que habilite la ejecuci&oacute;n de scripts y/o controles Active X. 
+            A continuaci&oacute;n se muestra un ejemplo:</p>
+            
+            <div id="imagen"><img src="descarga/css/images/ie_active.png" title="Active X en Internet Explorer" alt="Active X en Internet Explorer" width="100%"/></div>
+            <br/>
+            <p>Si cumple todos los requisitos pulse el bot&oacute;n "Continuar" para visualizar el mapa documental del procedimiento</p>
+            <div id="continuar"><input type="button" value="Continuar" onclick="muestraArbol()"/></div>
+        </div>
+        
+        <div id="navegador">
+            <div id="opciones" class="botones">
+                <img id="btnOcultarArbol" src="descarga/css/images/ocultarArbol.png" onmouseout="this.src='descarga/css/images/ocultarArbol.png'" onmouseover="this.src='descarga/css/images/ocultarArbolOn.png'" style="cursor:pointer; height: 30px; width: 30px;" alt="Ocultar Arbol" onClick="ocultaArbol()" title="Ocultar Arbol"/>
+                <img id="btnMostrarArbol" src="descarga/css/images/mostrarArbol.png" onmouseout="this.src='descarga/css/images/mostrarArbol.png'" onmouseover="this.src='descarga/css/images/mostrarArbolOn.png'" style="cursor:pointer; display:none; height: 30px; width: 30px;" alt="Mostrar Arbol" onClick="mostrarArbol()" title="Mostrar Arbol"/>
+                
+                                
+                                
+                                
+                                
+                                    <img id="botonVideoAdjuntaVista" src="descarga/css/images/gestorVidVista.png" onclick="loadVideoAdjunto();" onmouseover="this.src='descarga/css/images/gestorVidVistaOn.png'" onmouseout="this.src='descarga/css/images/gestorVidVista.png'" style="cursor: pointer; margin-left: 10px; height: 30px; width: 30px;" alt="Ver Videos Adjuntos" title="Ver Videos Adjuntos" />
+                    <img id="botonOnVideoAdjuntaVista" src="descarga/css/images/gestorVidVistaActivo.png"  onclick="loadArbol();" style="cursor: pointer; margin-left: 10px; display: none; height: 30px; width: 30px;" alt="Ver Videos Adjuntos" title="Ver Videos Adjuntos" />
+                                
+                                
+            </div>      
+            <div id="izquierda" style="height: 700px; overflow-y: auto;">
+                <ul id="arbol" class="filetree"><li class="closed"><span class="folder">DIP 1193/2023</span><ul><li><span class="rtf" style="cursor:pointer" title="118 - CAR&Aacute;TULA" onclick="cargaPdf('docs/DIP_1193_2023/001. CARPETA DE PROCEDIMIENTO FE.TRA- 21-06-2023.RTF')">CARPETA DE PROCEDIMIENTO FE.TRA: 21/06/2023</span></li><li><span class="pdf" style="cursor:pointer" title="157 - AUTO DE TR&Aacute;MITE" onclick="cargaPdf('docs/DIP_1193_2023/002. AUTO DE INCOACION DIP GENERICO FE.TRA- 21-06-2023.PDF')">AUTO DE INCOACI&Oacute;N DIP (GEN&Eacute;RICO)          FE.TRA: 21/06/2023</span></li><li><span class="pdf" style="cursor:pointer" title="113 - TELEGRAMA" onclick="cargaPdf('docs/DIP_1193_2023/003. CRISTINA DIAZ ROMERO - BUROFAX CITACION AL PERJUDICADO FE.TRA- 21-06-2023.PDF')">CRISTINA DIAZ ROMERO - BUROFAX CITACI&Oacute;N AL PERJUDICADO FE.TRA: 21/06/2023</span></li><li><span class="pdf" style="cursor:pointer" title="PEP - ESCRITO DE PERSONACI&Oacute;N EN PROCEDIMIENTO" onclick="cargaPdf('docs/DIP_1193_2023/004. ESCRITO DE PERSONACION_FIRMADO.PDF.PDF')">ESCRITO DE PERSONACI&Oacute;N_FIRMADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PPE - DOC.REPRES.PARTES PODER PLEITOS ESPECIAL" onclick="cargaPdf('docs/DIP_1193_2023/005. DOC 1 PODER ELECTRONICO.PDF.PDF')">DOC 1 PODER ELECTRONICO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/DIP_1193_2023/006. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202310585598687.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202310585598687</span></li><li><span class="pdf" style="cursor:pointer" title="158 - PROVIDENCIA DE TR&Aacute;MITE" onclick="cargaPdf('docs/DIP_1193_2023/007. PROVIDENCIA PRACTICA DE DILIGENCIAS FE.TRA- 21-07-2023.PDF')">PROVIDENCIA PR&Aacute;CTICA DE DILIGENCIAS FE.TRA: 21/07/2023</span></li><li><span class="pdf" style="cursor:pointer" title="PEP - ESCRITO DE PERSONACI&Oacute;N EN PROCEDIMIENTO" onclick="cargaPdf('docs/DIP_1193_2023/008. JUAN ANTONIO CHARNECO DESIGNACION INSTRUCCION 5 DILIG PREV FIRMADO.PDF.PDF')">JUAN ANTONIO CHARNECO DESIGNACION INSTRUCCION 5 DILIG PREV FIRMADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/DIP_1193_2023/009. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202310594771461.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202310594771461</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/DIP_1193_2023/010. DILIG. DE ORDENACION UNION DE ESCRITO FE.TRA- 19-09-2023.PDF')">DILIG. DE ORDENACI&Oacute;N UNI&Oacute;N DE ESCRITO  FE.TRA: 19/09/2023</span></li><li><span class="pdf" style="cursor:pointer" title="SPR - ESCRITO DE SOLICITUD/PETICI&Oacute;N DE PRUEBA" onclick="cargaPdf('docs/DIP_1193_2023/011. CHARNECO SOLICITUD COPIAS.PDF.PDF')">CHARNECO SOLICITUD COPIAS.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="EAL - ESCRITO DE ALEGACIONES" onclick="cargaPdf('docs/DIP_1193_2023/012. ESCRITO INTERESANDO COPIA DECLARACIPN INVESTIGADO.PDF.PDF')">ESCRITO INTERESANDO COPIA DECLARACIPN INVESTIGADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="EAL - ESCRITO DE ALEGACIONES" onclick="cargaPdf('docs/DIP_1193_2023/013. ALEGACIONES- PRUEBA DOCUMENTAL-_FIRMADO.PDF.PDF')">ALEGACIONES- PRUEBA DOCUMENTAL-_FIRMADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/DIP_1193_2023/014. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202310606021377.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202310606021377</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/DIP_1193_2023/015. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202310605757925.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202310605757925</span></li><li><span class="pdf" style="cursor:pointer" title="PCE - DOCUMENTACI&Oacute;N PROBATORIA CORREO ELECTR&Oacute;NICO" onclick="cargaPdf('docs/DIP_1193_2023/016. 1.PDF.PDF')">1.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PCE - DOCUMENTACI&Oacute;N PROBATORIA CORREO ELECTR&Oacute;NICO" onclick="cargaPdf('docs/DIP_1193_2023/017. 2.PDF.PDF')">2.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PCE - DOCUMENTACI&Oacute;N PROBATORIA CORREO ELECTR&Oacute;NICO" onclick="cargaPdf('docs/DIP_1193_2023/018. 3.PDF.PDF')">3.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PCE - DOCUMENTACI&Oacute;N PROBATORIA CORREO ELECTR&Oacute;NICO" onclick="cargaPdf('docs/DIP_1193_2023/019. 4.PDF.PDF')">4.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PCE - DOCUMENTACI&Oacute;N PROBATORIA CORREO ELECTR&Oacute;NICO" onclick="cargaPdf('docs/DIP_1193_2023/020. 5.PDF.PDF')">5.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PBA - DOCUMENTACI&Oacute;N PROBATORIA BANCARIA" onclick="cargaPdf('docs/DIP_1193_2023/021. 6_.PDF.PDF')">6_.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PBA - DOCUMENTACI&Oacute;N PROBATORIA BANCARIA" onclick="cargaPdf('docs/DIP_1193_2023/022. 7.PDF.PDF')">7.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PBA - DOCUMENTACI&Oacute;N PROBATORIA BANCARIA" onclick="cargaPdf('docs/DIP_1193_2023/023. 8.PDF.PDF')">8.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/DIP_1193_2023/024. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202310606510267.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202310606510267</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/DIP_1193_2023/025. EXTERNO - DENUNCIA FE.PRE- 15-10-2023.PDF')">EXTERNO - DENUNCIA  FE.PRE: 15/10/2023</span></li><li><span class="pdf" style="cursor:pointer" title="158 - PROVIDENCIA DE TR&Aacute;MITE" onclick="cargaPdf('docs/DIP_1193_2023/026. PROVIDENCIA PRACTICA DE DILIGENCIAS FE.TRA- 15-10-2023.PDF')">PROVIDENCIA PR&Aacute;CTICA DE DILIGENCIAS FE.TRA: 15/10/2023</span></li><li><span class="pdf" style="cursor:pointer" title="102 - AUTO" onclick="cargaPdf('docs/DIP_1193_2023/027. AUTO CONTINUACION EN PROCEDIMIENTO ABREVIADO FE.TRA- 15-10-2023.PDF')">AUTO CONTINUACI&Oacute;N EN PROCEDIMIENTO ABREVIADO      FE.TRA: 15/10/2023</span></li><li><span class="pdf" style="cursor:pointer" title="EAL - ESCRITO DE ALEGACIONES" onclick="cargaPdf('docs/DIP_1193_2023/028. PIEZA DE RESPONSABILIDAD CIVIL-_FIRMADO.PDF.PDF')">PIEZA DE RESPONSABILIDAD CIVIL-_FIRMADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="PBA - DOCUMENTACI&Oacute;N PROBATORIA BANCARIA" onclick="cargaPdf('docs/DIP_1193_2023/029. CERTIFICADO TITULARIDAD CUENTA BANCARIA_.PDF.PDF')">CERTIFICADO TITULARIDAD CUENTA BANCARIA_.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/DIP_1193_2023/030. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202310610775085.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202310610775085</span></li><li><span class="pdf" style="cursor:pointer" title="158 - PROVIDENCIA DE TR&Aacute;MITE" onclick="cargaPdf('docs/DIP_1193_2023/031. PROVIDENCIA FE.TRA- 26-10-2023.PDF')">PROVIDENCIA  FE.TRA: 26/10/2023</span></li></ul></li><li class="closed"><span class="folder">PAB 1193/2023</span><ul><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_1193_2023/001. EXTERNO - AVERIGUACION PATRIMONIAL FE.PRE- 16-10-2023.PDF')">EXTERNO - AVERIGUACI&Oacute;N PATRIMONIAL FE.PRE: 16/10/2023</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_1193_2023/002. EXTERNO - DENUNCIA FE.PRE- 24-10-2023.PDF')">EXTERNO - DENUNCIA FE.PRE: 24/10/2023</span></li><li><span class="zip" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_1193_2023/003. EXTERNO - 99135875_DENUNCIA FE.PRE- 24-10-2023.ZIP')">EXTERNO - 99135875_DENUNCIA FE.PRE: 24/10/2023</span></li><li><span class="zip" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_1193_2023/004. EXTERNO - 99135875_DENUNCIA FE.PRE- 27-10-2023.ZIP')">EXTERNO - 99135875_DENUNCIA FE.PRE: 27/10/2023</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_1193_2023/005. EXTERNO - ACUSACION FE.PRE- 20-12-2023.PDF')">EXTERNO - ACUSACI&Oacute;N FE.PRE: 20/12/2023</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_1193_2023/006. DIOR. DANDO TRASLADO ACUSACION PARTICULAR PARA CALIFICACION FE.TRA- 21-12-2023.PDF')">DIOR. DANDO TRASLADO ACUSACI&Oacute;N PARTICULAR PARA CALIFICACI&Oacute;N FE.TRA: 21/12/2023</span></li><li><span class="pdf" style="cursor:pointer" title="157 - AUTO DE TR&Aacute;MITE" onclick="cargaPdf('docs/PAB_1193_2023/007. AUTO APERTURA JUICIO ORAL A COMPONER POR PARRAFOS FE.TRA- 22-01-2024.PDF')">AUTO APERTURA JUICIO ORAL  (A COMPONER POR P&Aacute;RRAFOS) FE.TRA: 22/01/2024</span></li><li><span class="pdf" style="cursor:pointer" title="SPR - ESCRITO DE SOLICITUD/PETICI&Oacute;N DE PRUEBA" onclick="cargaPdf('docs/PAB_1193_2023/008. CHARNECO SOLICITUD COPIA DE DENUNCIA.PDF.PDF')">CHARNECO SOLICITUD COPIA DE DENUNCIA.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="EAI - ESCRITO DE ACUSACI&Oacute;N" onclick="cargaPdf('docs/PAB_1193_2023/009. ESCRITO DE ACUSACION_FIRMADO.PDF.PDF')">ESCRITO DE ACUSACI&Oacute;N_FIRMADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="SPR - ESCRITO DE SOLICITUD/PETICI&Oacute;N DE PRUEBA" onclick="cargaPdf('docs/PAB_1193_2023/010. CHARNECO SOLICITUD.PDF.PDF')">CHARNECO SOLICITUD.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="SPR - ESCRITO DE SOLICITUD/PETICI&Oacute;N DE PRUEBA" onclick="cargaPdf('docs/PAB_1193_2023/011. CHARNECO AUTOS.PDF.PDF')">CHARNECO AUTOS.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_1193_2023/012. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202410634467604.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202410634467604</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_1193_2023/013. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202410634760132.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202410634760132</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_1193_2023/014. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202410635037748.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202410635037748</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_1193_2023/015. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202410635889720.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202410635889720</span></li><li><span class="rtf" style="cursor:pointer" title="118 - CAR&Aacute;TULA" onclick="cargaPdf('docs/PAB_1193_2023/016. CARPETA DE PROCEDIMIENTO FE.TRA- 25-01-2024.RTF')">CARPETA DE PROCEDIMIENTO FE.TRA: 25/01/2024</span></li><li><span class="pdf" style="cursor:pointer" title="160 - TESTIMONIO RESOLUCIONES" onclick="cargaPdf('docs/PAB_1193_2023/017. TESTIMONIO FE.TRA- 25-01-2024.PDF')">TESTIMONIO FE.TRA: 25/01/2024</span></li><li><span class="rtf" style="cursor:pointer" title="117 - REQUERIMIENTO" onclick="cargaPdf('docs/PAB_1193_2023/018. JUAN ANTONIO CHARNECO MATEOS - REQUERIMIENTO PAGO FIANZA FE.TRA- 06-02-2024.RTF')">JUAN ANTONIO CHARNECO MATEOS - REQUERIMIENTO PAGO FIANZA FE.TRA: 06/02/2024</span></li><li><span class="pdf" style="cursor:pointer" title="EAL - ESCRITO DE ALEGACIONES" onclick="cargaPdf('docs/PAB_1193_2023/019. CHARNECO CALIFICACION PROVISIONAL.PDF.PDF')">CHARNECO CALIFICACION PROVISIONAL.PDF</span></li><li><span class="zip" style="cursor:pointer" title="DIN - DOCUMENTACI&Oacute;N INDETERMINADA" onclick="cargaPdf('docs/PAB_1193_2023/020. CHARNECO ANEXOS.ZIP.ZIP')">CHARNECO ANEXOS.ZIP</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_1193_2023/021. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202410641070075.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202410641070075</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_1193_2023/022. DILIG. DE ORDENACION PRESENT ESCRITO DE DEFENS REMIS ACTUAC ART. 784.5 FE.TRA- 13-02-2024.PDF')">DILIG. DE ORDENACI&Oacute;N PRESENT ESCRITO DE DEFENS REMIS ACTUAC ART. 784.5 FE.TRA: 13/02/2024</span></li><li><span class="pdf" style="cursor:pointer" title="139 - OFICIO NO RESOLUTIVO" onclick="cargaPdf('docs/PAB_1193_2023/023. OFICIO DECANATO FE.TRA- 16-02-2024.PDF')">OFICIO DECANATO FE.TRA: 16/02/2024</span></li></ul></li><li class="closed"><span class="folder">PAB 98/2024</span><ul><li><span class="zip" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_98_2024/001. EXTERNO - 99135875_DENUNCIA FE.PRE- 24-10-2023.ZIP')">EXTERNO - 99135875_DENUNCIA FE.PRE: 24/10/2023</span></li><li><span class="zip" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_98_2024/002. EXTERNO - 99135875_DENUNCIA FE.PRE- 27-10-2023.ZIP')">EXTERNO - 99135875_DENUNCIA FE.PRE: 27/10/2023</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_98_2024/003. DENUNCIA .PDF')">DENUNCIA</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_98_2024/004. AVERIGUACION PATRIMONIAL.PDF')">AVERIGUACI&Oacute;N PATRIMONIAL</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_98_2024/005. DENUNCIA.PDF')">DENUNCIA</span></li><li><span class="pdf" style="cursor:pointer" title="EXT - EXTERNO" onclick="cargaPdf('docs/PAB_98_2024/006. ACUSACION.PDF')">ACUSACI&Oacute;N</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/007. DIOR. RECEPCION AUTOS COMPLETOS JDO. PENAL FE.TRA- 05-08-2024.PDF')">DIOR. RECEPCI&Oacute;N AUTOS COMPLETOS JDO. PENAL FE.TRA: 05/08/2024</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/008. DIOR. SENALAMIENTO FE.TRA- 18-02-2025.PDF')">DIOR. SE&Ntilde;ALAMIENTO  FE.TRA: 18/02/2025</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/009. DIOR. UNIENDO ESCRITOS FE.TRA- 26-03-2026.PDF')">DIOR. UNIENDO ESCRITOS FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="PEP - ESCRITO DE PERSONACI&Oacute;N EN PROCEDIMIENTO" onclick="cargaPdf('docs/PAB_98_2024/010. PERSONACION COMO ACUSACION PARTICULAR.PDF.PDF')">PERSONACION COMO ACUSACION PARTICULAR.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="EAL - ESCRITO DE ALEGACIONES" onclick="cargaPdf('docs/PAB_98_2024/011. CHARNECO NO COMPARECENCIA A JUICIO A CONCILIACION PENAL.PDF.PDF')">CHARNECO NO COMPARECENCIA A JUICIO A CONCILIACION PENAL.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_98_2024/012. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202410644762896.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202410644762896</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_98_2024/013. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202510754324279.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202510754324279</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/014. DIOR. MANDA VOLVER A SENALAR TRAS SUSPENSION O APLAZAMIENTO FE.TRA- 26-03-2026.PDF')">DIOR. MANDA VOLVER A SE&Ntilde;ALAR TRAS SUSPENSI&Oacute;N O APLAZAMIENTO FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="114 - CITACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/015. JUAN ANTONIO CHARNECO MATEOS - CEDULA DE CITACION ACUSADO PENA - 2 ANOS FE.TRA- 26-03-2026.PDF')">JUAN ANTONIO CHARNECO MATEOS - C&Eacute;DULA DE CITACION ACUSADO (PENA - 2 A&Ntilde;OS) FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="114 - CITACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/016. CRSTINA DIAZ ROMERO - CEDULA DE CITACION TESTIGO FE.TRA- 26-03-2026.PDF')">CRSTINA DIAZ ROMERO - C&Eacute;DULA DE CITACI&Oacute;N TESTIGO FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="157 - AUTO DE TR&Aacute;MITE" onclick="cargaPdf('docs/PAB_98_2024/017. AUTO ADMISION DENEGACION PRUEBA FE.TRA- 26-03-2026.PDF')">AUTO ADMISI&Oacute;N DENEGACI&Oacute;N PRUEBA FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="114 - CITACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/018. PABLO ANTONIO CHARNECO FONTOBA - CEDULA DE CITACION TESTIGO FE.TRA- 26-03-2026.PDF')">PABLO ANTONIO CHARNECO FONTOBA - C&Eacute;DULA DE CITACI&Oacute;N TESTIGO FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="114 - CITACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/019. M JUANA MATEOS FERNANDEZ - CEDULA DE CITACION TESTIGO FE.TRA- 26-03-2026.PDF')">M�JUANA MATEOS  FERNANDEZ - C&Eacute;DULA DE CITACI&Oacute;N TESTIGO FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="113 - TELEGRAMA" onclick="cargaPdf('docs/PAB_98_2024/020. BUROFAX CITANDO A JUICIO FUNCIONARIOS POLICIA NACIONAL FE.TRA- 26-03-2026.PDF')">BUROFAX  CITANDO  A JUICIO FUNCIONARIOS POLICIA NACIONAL FE.TRA: 26/03/2026</span></li><li><span class="pdf" style="cursor:pointer" title="113 - TELEGRAMA" onclick="cargaPdf('docs/PAB_98_2024/021. BUROFAX CITANDO A JUICIO FUNCIONARIOS POLICIA NACIONAL FE.TRA- 14-04-2026.PDF')">BUROFAX  CITANDO  A JUICIO FUNCIONARIOS POLICIA NACIONAL FE.TRA: 14/04/2026</span></li><li><span class="pdf" style="cursor:pointer" title="103 - DILIGENCIA ORDENACI&Oacute;N" onclick="cargaPdf('docs/PAB_98_2024/022. DIOR. SE ACCEDE A BIOMBO FE.TRA- 15-04-2026.PDF')">DIOR. SE ACCEDE A BIOMBO FE.TRA: 15/04/2026</span></li><li><span class="pdf" style="cursor:pointer" title="EAL - ESCRITO DE ALEGACIONES" onclick="cargaPdf('docs/PAB_98_2024/023. BIOMBO_FIRMADO.PDF.PDF')">BIOMBO_FIRMADO.PDF</span></li><li><span class="pdf" style="cursor:pointer" title="999 - DATOS DEL ASUNTO Y DOCUMENTACION" onclick="cargaPdf('docs/PAB_98_2024/024. DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO VIA LEXNET CON CODIGO 202610870525833.PDF')">DOCUMENTO CON LOS DATOS DEL MENSAJE PRESENTADO V&Iacute;A LEXNET CON C&Oacute;DIGO 202610870525833</span></li></ul></li></ul></li></ul><ul id="arbolVidAdjuntos" style="padding-left: 0px; list-style: none;" class="filetree"><div id='listVidAdjuntos' style='display: none;'><center><strong>- Videos Del Procedimiento -</strong></center><br/><li><span class="mp4" style="cursor:pointer" title="VIDEOS ADJUNTOS" onclick="reproducirVideo('Videos adjuntos/2023-09-26-11-49-26_0001193-2023_CP_0926114926922/2023-09-26-11-49-26_0001193-2023_CP_0926114926922.mp4')">2023-09-26-11-49-26_0001193-2023_CP_0926114926922.mp4</span></li></div></ul><ul id="arbolVidAdjuntos" style="padding-left: 0px; list-style: none;" class="filetree"><div id='listVidAdjuntos' style='display: none;'><center><strong>- Videos Del Procedimiento -</strong></center><br/><li><span class="mp4" style="cursor:pointer" title="VIDEOS ADJUNTOS" onclick="reproducirVideo('Videos adjuntos/2023-09-26-11-49-26_0001193-2023_CP_0926114926922/2023-09-26-11-49-26_0001193-2023_CP_0926114926922.mp4')">2023-09-26-11-49-26_0001193-2023_CP_0926114926922.mp4</span></li></div></ul></ul>
+            </div>
+            <div id="derecha">
+                       <div id="content-container">
+                                <!-- El iframe o el video se mostrarán aquí -->
+                            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
